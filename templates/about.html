@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block title %}About - Predict Your Salary Now{% endblock %}
+
+{% block navbar %}
+<nav class="spnav-wrapper">
+    <div class="spnav-left">
+        <div class="spnav-logo">SP</div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('history') }}">History</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="spabout-container">
+    <h2>About This Project</h2>
+    <p class="spabout-desc">
+        This Salary Prediction Web App is built to provide quick and accurate salary estimates based on your age and years of experience.
+        It leverages a combination of modern technologies and Python data science tools.
+    </p>
+
+    <div class="spabout-tech-grid">
+        <div class="spabout-tech-card">HTML5</div>
+        <div class="spabout-tech-card">CSS3</div>
+        <div class="spabout-tech-card">Jinja2</div>
+        <div class="spabout-tech-card">Flask</div>
+        <div class="spabout-tech-card">Python</div>
+        <div class="spabout-tech-card">MySQL</div>
+        <div class="spabout-tech-card">NumPy</div>
+        <div class="spabout-tech-card">Pandas</div>
+        <div class="spabout-tech-card">Scikit-learn</div>
+        <div class="spabout-tech-card">Joblib</div>
+    </div>
+
+    <p class="spabout-note">
+        The project showcases a full-stack approach: a sleek frontend interface, secure backend login system, and a trained machine learning model integrated seamlessly.
+    </p>
+    <div class="spabout-tech-card">Made by SYED HASEEB SHAH with ❤️</div>
+</div>
+{% endblock %}

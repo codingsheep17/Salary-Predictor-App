@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}History - Predict Your Salary{% endblock %}
+
+{% block navbar %}
+<nav class="spnav-wrapper">
+    <div class="spnav-left">
+        <div class="spnav-logo">SP</div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('history') }}">History</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="sphist-container">
+    <h2>Your Prediction History</h2>
+
+    {% if history %}
+    <table class="sphist-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Age</th>
+                <th>Experience (Years)</th>
+                <th>Predicted Salary ($)</th>
+                <th>Predicted At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in history %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ record[0] }}</td>
+                <td>{{ record[1] }}</td>
+                <td>{{ record[2] }}</td>
+                <td>{{ record[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="sphist-no-data">No predictions yet. Start predicting now!</div>
+    {% endif %}
+</div>
+{% endblock %}

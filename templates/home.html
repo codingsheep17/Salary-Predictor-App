@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home - Predict Your Salary Now{% endblock title %}
+
+{% block navbar %}
+<nav class="spnav-wrapper">
+    <div class="spnav-left">
+        <div class="spnav-logo">SP</div>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('history') }}">History</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="sppredict-container">
+    <h2>Salary Prediction</h2>
+    <form method="post" action="{{ url_for('home') }}">
+        <div class="sppredict-group">
+            <label>Age</label>
+            <input type="number" name="age" min="18" max="80" required placeholder="Enter your age">
+        </div>
+        <div class="sppredict-group">
+            <label>Years of Experience</label>
+            <input type="number" name="experience" min="0" max="60" required placeholder="Enter experience">
+        </div>
+        <button class="sppredict-btn" type="submit">Predict Salary</button>
+        {% if prediction %}
+        <div class="sppredict-result">
+            Estimated Salary: <strong>${{ prediction }}</strong>
+        </div>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}Login - Welcome Back{% endblock %}
+
+{% block navbar %}
+<nav class="spnav-wrapper">
+    <div class="spnav-left">
+        <div class="spnav-logo">SP</div>
+    </div>
+    <div class="spnav-right">
+        <a href="{{ url_for('signup') }}">SignUp</a>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="spsign-container">
+    <h2>Welcome Back</h2>
+    <form method="post" action="{{ url_for('login') }}">
+        <div class="spsign-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter email" required>
+        </div>
+        <div class="spsign-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="password" required>
+        </div>
+        <button class="spsign-btn" type="submit">LogIn</button>
+        <!-- Warning box -->
+        {% if error_login %}
+        <div class="spsign-warning">
+            {{ error_login }}
+        </div>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

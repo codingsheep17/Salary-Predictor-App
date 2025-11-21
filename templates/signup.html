@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block title %}SignUp- Register Now{% endblock %}
+
+{% block navbar %}
+<nav class="spnav-wrapper">
+    <div class="spnav-left">
+        <div class="spnav-logo">SP</div>
+    </div>
+    <div class="spnav-right">
+        <a href="{{ url_for('login') }}">Login</a>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="spsign-container">
+    <h2>Register Now</h2>
+
+    <form method="post" action="{{ url_for('signup') }}">
+
+        <div class="spsign-group">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter username" required>
+        </div>
+
+        <div class="spsign-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter email" required>
+        </div>
+
+        <div class="spsign-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter password" required>
+        </div>
+
+        <button class="spsign-btn" type="submit">Sign Up</button>
+
+        <!-- Warning box -->
+        {% if error_signup %}
+        <div class="spsign-warning" id="already-exists">
+            {{error_signup}}
+        </div>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}
